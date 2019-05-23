@@ -45,17 +45,17 @@
                         <template v-for="item in secondMenu" >
                             <Submenu name="1" v-if="item.children" :key="item.name">
                                 <template slot="title">
-                                    <Icon :type="item.icon"></Icon>
-                                    {{item.title}}
+                                    <Icon :type="item.meta.icon"></Icon>
+                                    {{item.meta.title}}
                                 </template>
                                 <MenuItem v-for="child in (item.children || [])" :key="child.name" :name="child.name" :to="{ name: child.name }" >
-                                    <Icon :type="child.icon"></Icon>
-                                    {{child.title}}
+                                    <Icon :type="child.meta.icon"></Icon>
+                                    {{child.meta.title}}
                                 </MenuItem>
                             </Submenu>
                             <MenuItem v-else :name="item.name" :to="{ name: item.name }" :key="item.name" >
-                                <Icon :type="item.icon"></Icon>
-                                {{item.title}}
+                                <Icon :type="item.meta.icon"></Icon>
+                                {{item.meta.title}}
                             </MenuItem>
                         </template>
                     </Menu>
@@ -70,19 +70,19 @@
     </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {
+export default {
+  data () {
+    return {
 
-            }
-        },
-        computed: {
-            firstMenu () {
-                return this.$store.state.menu.menuList
-            },
-            secondMenu () {
-                return (this.$store.state.menu.menuList.find(m => m.name === this.$route.matched[0].name) || {}).children
-            }
-        }
     }
+  },
+  computed: {
+    firstMenu () {
+      return this.$store.state.menu.menuList
+    },
+    secondMenu () {
+      return (this.$store.state.menu.menuList.find(m => m.name === this.$route.matched[0].name) || {}).children
+    }
+  }
+}
 </script>

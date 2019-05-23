@@ -9,8 +9,10 @@ const recursion = (list, basePath = '') => {
     const child = {
       path,
       name,
-      title,
-      icon
+      meta: {
+        title,
+        icon
+      }
     }
     if (children) {
       child.children = recursion(children, path)

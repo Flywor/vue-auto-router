@@ -15,11 +15,11 @@
     </Collapse>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                value1: '1'
-            }
-        }
+export default {
+  data () {
+    return {
+      value1: '1'
     }
+  }
+}
 </script>

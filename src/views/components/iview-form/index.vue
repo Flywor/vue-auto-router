@@ -36,25 +36,25 @@
     </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                formLeft: {
-                    input1: '',
-                    input2: '',
-                    input3: ''
-                },
-                formRight: {
-                    input1: '',
-                    input2: '',
-                    input3: ''
-                },
-                formTop: {
-                    input1: '',
-                    input2: '',
-                    input3: ''
-                }
-            }
-        }
+export default {
+  data () {
+    return {
+      formLeft: {
+        input1: '',
+        input2: '',
+        input3: ''
+      },
+      formRight: {
+        input1: '',
+        input2: '',
+        input3: ''
+      },
+      formTop: {
+        input1: '',
+        input2: '',
+        input3: ''
+      }
     }
+  }
+}
 </script>

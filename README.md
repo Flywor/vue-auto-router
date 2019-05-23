@@ -1,95 +1,15 @@
-# vue-block-upload
-基于vue的上传组件
-
-###
-![example](https://github.com/Flywor/vue-block-upload/blob/master/ex/ex0.gif)
-
-## Install
-```
-npm install vue-block-upload
-```
-
-## Use
-```
-import VueBlockUpload from 'vue-block-upload'
-import 'vue-block-upload/dist/vue-block-upload.css'
-Vue.use(VueBlockUpload)
-```
+# vue-auto-router
+vue动态路由实例
 
 ## Develop
 ```
 npm install
-npm run serve
+npm run dev
 ```
 
-## 功能
-- 单文件/多文件选择
-- 大文件分片上传-合并校验
-- 上传选择的文件限制-基于input[type="file"] accept
-- 图片预览 `blob`
 
-## 未完成
-- autoUpload
-- 暂停上传
+## 说明
 
-## 依赖
-- vue 2.0+
-- axios 0.18+
-
-## 插槽slot
-- `slot="select-btn"` 选择文件按钮
-
-- `slot="file-list"  slot-scope="{ list, remove }"` 文件列表 scope: list 文件列表，包含了状态、进度等拓展信息， remove 删除方法，需传入当前文件对象和index
-
-- `slot="upload-btn" slot-scope="{ handlerStartUpload }"` 上传按钮  handlerStartUpload： 开始上传方法
-
-## 事件event
-- `@on-file-change(fileList)` 选择文件发生变化时调用
-- `@on-success` 上传成功调用
-- `@on-error(Error)` 上传失败调用
-
-## 参数
-```
-  props: {
-    // 是否可多选
-    multiple: {
-      type: Boolean,
-      default: true
-    },
-    // 等同input[type="file"] accept
-    accept: {
-      type: String,
-      default: 'image/*'
-    },
-    // 上传的文件列表，可支持默认，必须设置preview属性和status=UPLOAD_SUCCESS
-    fileList: {
-      type: Array,
-      default: () => [] 
-    },
-    // 上传最大文件限制
-    maxSize: {
-      type: Number,
-      default: 5 * 1024 * 1024 * 1024
-    },
-    // 大于这个大小的文件使用分块上传(后端可以支持断点续传)
-    multiUploadSize: {
-      type: Number,
-      default: 100 * 1024 * 1024
-    },
-    // 每块文件大小
-    eachSize: {
-      type: Number,
-      default: 50 * 1024 * 1024
-    },
-    // 提交的文件地址
-    postUrl: {
-      type: String,
-      default: 'http://localhost:8888'
-    },
-    // 验证合并文件块地址
-    validateUrl: {
-      type: String,
-      default: 'http://localhost:8888/validateFile'
-    }
-  }
-  ```
+> 本例一级菜单渲染在顶部，二级和三级菜单在左边（如果有的话），配合iview-admin使用效果更佳。
+> 本例的动态路由，其实是在main.js入口渲染之前先一步请求到菜单数据，存到vuex里面，然后再通过require进行路由注册，注册的时候根据菜单数据来组织路由结构，至此程序初始化完成，后续使用路由数据可以通过```/router/routers.js```拿到，菜单数据可以通过```$store.state.menu.menulist```拿到。
+> 路由的最终组织结构自行打开控制台查看。
